@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="Ticket_quantity">
+        <a href="#" class=" counter__decrement">-</a>
+        <input type="text" class="counter__input" value="0">
+        <a href="#" class=" counter__increment">+ </a>
+    </div>
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous"></script>
+
+  
+<script>
+
+		// ------------ Counter BEGIN ------------ 
+		$(".counter__increment, .counter__decrement").click(function(e)
+		{
+            e.preventDefault()
+			var $this = $(this);
+			var $counter__input = $(this).parent().find(".counter__input");
+			var $currentVal = parseInt($(this).parent().find(".counter__input").val());
+
+			//Increment
+			if ($currentVal != NaN && $this.hasClass('counter__increment'))
+			{
+				$counter__input.val($currentVal + 1);
+			}
+			//Decrement
+			else if ($currentVal != NaN && $this.hasClass('counter__decrement'))
+			{
+				if ($currentVal >= 1) {
+					$counter__input.val($currentVal - 1);
+				}
+			}
+		});
+		// ------------ Counter END ------------ 
+
+
+</script>
+
+</body>
+</html>

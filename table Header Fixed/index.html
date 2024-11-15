@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Site Title Here</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="shortcut icon" type="image/x-icon" href="#">
+        <!-- Place favicon.ico in the root directory -->
+        
+		<!-- CSS here -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.min.css"> 
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css">  
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+    </head>
+    <body>
+
+
+
+    <main>
+
+        <style>
+            .table{
+                overflow: auto;
+                height: 500px;
+            }
+            #table-header-fixed {
+                position: fixed;
+                top: 0px;
+                display: none;
+                background-color: white;
+            }
+            .table thead th {
+                font-weight: 400;
+                position: sticky;
+                top: 10px;
+                background: #fff;
+                padding-top: 20px;
+                z-index: 99;
+            }
+        </style>
+
+
+        <div class="table">  <!-- Set fixed Hight -->
+            <table id="table-1">
+                <thead>
+                <tr>
+                    <th>Col1</th>
+                    <th>Col2</th>
+                    <th>Col3</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>info</td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                <tr>
+                    <td>info</td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                <tr>
+                    <td>info</td>
+                    <td>info</td>
+                    <td>info</td>
+                </tr>
+                </tbody>
+            </table>
+            <table id="table-header-fixed"></table>
+        </div>  
+    </main>
+
+    
+		<!-- JS here --> 
+        <script src="assets/js/jquery-3.4.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script> 
+        <script src="assets/js/main.js"></script>
+<script>
+var tableOffset = $("#table-1").offset().top;
+var $header = $("#table-1 > thead").clone();
+var $fixedHeader = $("#table-header-fixed").append($header);
+
+$(window).bind("scroll", function() {
+  var offset = $(this).scrollTop();
+
+  if (offset >= tableOffset && $fixedHeader.is(":hidden")) {
+    $fixedHeader.show();
+  } else if (offset < tableOffset) {
+    $fixedHeader.hide();
+  }
+});
+</script>
+    </body>
+</html>

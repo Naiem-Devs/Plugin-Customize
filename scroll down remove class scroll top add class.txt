@@ -1,0 +1,16 @@
+https://dev.to/zainmuhammad/how-to-remove-class-on-scroll-top-and-add-on-scroll-down-on-html-body-using-javascript-4oab
+
+// javascript for remove class on scroll top and add on scroll down 
+var lastScrollTop = 0;
+var body = document.querySelector('.header-area');
+window.addEventListener("scroll",function(){
+var scrollTop = window.pageYOffset || document
+.documentElement.scrollTop;
+if(scrollTop > lastScrollTop){
+    body.classList.remove("fixed-header");
+}
+else{
+    body.classList.add("fixed-header");
+}
+lastScrollTop = scrollTop;
+});
